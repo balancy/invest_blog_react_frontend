@@ -6,4 +6,4 @@ It represents a React SPA developped in educational purposes. It has 3 pages: Co
 
 For Courses and Mentors it fetches data from a simple [Django REST API](https://github.com/balancy/invest_blog_rest_api).
 
-[!sqds](https://i.ibb.co/28BMsHP/image.png)
+![react](https://i.ibb.co/28BMsHP/image.png)
