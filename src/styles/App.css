@@ -6,3 +6,23 @@
 .App {
   width: 500px;
 }
+
+.navbar {
+  margin: 12px 0;
+  display: flex;
+  background-color: aliceblue;
+  width: 100%;
+  padding: 12px;
+}
+
+.navbar__element, .openCourseButton {
+  padding: 5px 15px;
+  color: teal;
+  font-size: 14px;
+  background: white;
+  border: 1px solid teal;
+  cursor: pointer;
+  margin-right: 6px;
+  text-decoration: none;
+  font-weight: 400;
+}

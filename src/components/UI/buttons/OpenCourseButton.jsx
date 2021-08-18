@@ -1,9 +1,8 @@
 import React from 'react'
-import classes from './OpenCourseButton.module.css'
 
 const OpenCourseButton = ({ children, ...props }) => {
     return (
-        <button {...props} className={classes.openCourseButton}>
+        <button {...props} className="openCourseButton">
             {children}
         </button>
     )
