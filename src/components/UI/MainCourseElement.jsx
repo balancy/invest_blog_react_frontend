@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import OpenCourseButton from './buttons/OpenCourseButton';
+import CourseButton from './buttons/CourseButton';
 import ApiService from '../../API/ApiService'
 
 const MainCourseElement = ({ index, course }) => {
     const [mentor, setMentor] = useState(null)
+    const [details, setDetails] = useState(null)
 
-    const showMentor = async () => setMentor((await ApiService.fetchMentor(course.mentor)).status)
+    const showMentor = async () => setMentor(await ApiService.fetchMentor(course.mentor))
+    const showDetails = async () => setDetails(await ApiService.fetchCourse(course.id))
 
     return (
         <div>
@@ -13,16 +15,24 @@ const MainCourseElement = ({ index, course }) => {
                 {index}. Название: {course.title}
             </h3>
             <p>
-                Описание: {course.description}
+                <strong>Крaткое описание:</strong> {course.short_description}
             </p>
             {
-                mentor && (
+                details && (
                     <p>
-                        Преподаватель: {mentor}
+                       <strong>Полное описание:</strong> {details.full_description}
                     </p>
                 )
             }
-            <OpenCourseButton onClick={showMentor}>Кто ведет курс?</OpenCourseButton>
+            {
+                mentor && (
+                    <p>
+                        <strong>Преподаватель:</strong> {mentor.fullname}
+                    </p>
+                )
+            }
+            <CourseButton onClick={showDetails}>Полное описание</CourseButton>
+            <CourseButton onClick={showMentor}>Кто преподаватель?</CourseButton>
         </div>
     )
 }

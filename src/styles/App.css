@@ -15,7 +15,7 @@
   padding: 12px;
 }
 
-.navbar__element, .openCourseButton {
+.navbar__element, .CourseButton {
   padding: 5px 15px;
   color: teal;
   font-size: 14px;

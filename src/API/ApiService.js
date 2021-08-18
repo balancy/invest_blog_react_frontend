@@ -13,6 +13,12 @@ export default class ApiService {
         return await response.json();
     }
 
+    static async fetchCourse(id) {
+        const courseUrl = configData.HOST + configData.COURSES_RELATIVE_URL + id + '/'
+        const response = await fetch(courseUrl);
+        return await response.json();
+    }
+
     static async fetchMentor(url) {
         const response = await fetch(url);
         return await response.json();

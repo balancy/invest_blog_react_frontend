@@ -7,7 +7,10 @@ const MainMentorElement = ({ index, mentor }) => {
                 {index}. Имя: {mentor.status}
             </h3>
             <p>
-                Биография: {mentor.bio}
+                <strong>Статус:</strong> {mentor.status}
+            </p>
+            <p>
+                <strong>Биография:</strong> {mentor.bio}
             </p>
         </div>
     )
