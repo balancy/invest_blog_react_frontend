@@ -12,7 +12,7 @@ const Courses = () => {
             <h1>Курсы</h1>
             <hr />
             {courses && (
-                <div className="courses">
+                <div>
                     {courses.map((course, index) => (
                         <div key={index}>
                             <MainCourseElement index={index + 1} course={course} />

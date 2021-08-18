@@ -7,6 +7,12 @@ export default class ApiService {
         return await response.json();
     }
 
+    static async fetchMentors() {
+        const mentorsUrl = configData.HOST + configData.MENTORS_RELATIVE_URL
+        const response = await fetch(mentorsUrl);
+        return await response.json();
+    }
+
     static async fetchMentor(url) {
         const response = await fetch(url);
         return await response.json();
