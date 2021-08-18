@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import OpenCourseButton from './buttons/OpenCourseButton';
+import ApiService from '../../API/ApiService'
 
 const MainCourseElement = ({ index, course }) => {
     const [mentor, setMentor] = useState(null)
 
-    const showMentor = async () => {
-        const response = await fetch(course.mentor);
-        const data = await response.json();
-
-        setMentor(data.status);
-    }
+    const showMentor = async () => setMentor((await ApiService.fetchMentor(course.mentor)).status)
 
     return (
         <div>
