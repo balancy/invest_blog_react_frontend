@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import ApiService from '../../API/ApiService';
-import CourseButton from './buttons/CourseButton';
+import MainButton from './buttons/MainButton';
 
 const MainCourseElement = ({ index, course }) => {
     const [mentor, setMentor] = useState(null)
@@ -24,8 +24,8 @@ const MainCourseElement = ({ index, course }) => {
                     </p>
                 )
             }
-            <CourseButton onClick={() => history.push(`courses/${course.id}`)}>Открыть</CourseButton>
-            <CourseButton onClick={showMentor}>Кто преподаватель?</CourseButton>
+            <MainButton onClick={() => history.push(`courses/${course.id}`)}>Открыть</MainButton>
+            <MainButton onClick={showMentor}>Кто преподаватель?</MainButton>
         </div>
     )
 }

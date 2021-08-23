@@ -5,7 +5,9 @@ import MainCourseElement from '../components/UI/MainCourseElement'
 const Courses = () => {
     const [courses, setCourses] = useState(null)
 
-    useEffect(async () => setCourses(await ApiService.fetchCourses()), [])
+    useEffect(
+        async () => setCourses(await ApiService.fetchCourses()),
+    [])
 
     return (
         <div>

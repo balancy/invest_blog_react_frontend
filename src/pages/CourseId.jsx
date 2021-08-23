@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import ApiService from '../API/ApiService'
-import CourseButton from '../components/UI/buttons/CourseButton'
+import MainButton from '../components/UI/buttons/MainButton'
 
 const CourseId = () => {
     const history = useHistory()
@@ -11,7 +11,7 @@ const CourseId = () => {
 
     useEffect(() => {
         fetchCourseDetails(params.id)
-    })
+    }, [])
 
     return (
         <div>
@@ -26,7 +26,7 @@ const CourseId = () => {
                     </div>
                 )
             }
-            <CourseButton onClick={() => history.push('/courses')}>Назад к курсам</CourseButton>
+            <MainButton onClick={() => history.push('/courses')}>Назад к курсам</MainButton>
         </div>
     )
 }
