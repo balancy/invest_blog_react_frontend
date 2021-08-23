@@ -4,7 +4,7 @@ const MainMentorElement = ({ index, mentor }) => {
     return (
         <div>
             <h3>
-                {index}. Имя: {mentor.status}
+                {index}. Имя: {mentor.fullname}
             </h3>
             <p>
                 <strong>Статус:</strong> {mentor.status}

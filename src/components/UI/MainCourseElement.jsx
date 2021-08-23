@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import ApiService from '../../API/ApiService';
 import CourseButton from './buttons/CourseButton';
-import ApiService from '../../API/ApiService'
 
 const MainCourseElement = ({ index, course }) => {
     const [mentor, setMentor] = useState(null)
-    const [details, setDetails] = useState(null)
+    const history = useHistory()
 
     const showMentor = async () => setMentor(await ApiService.fetchMentor(course.mentor))
-    const showDetails = async () => setDetails(await ApiService.fetchCourse(course.id))
 
     return (
         <div>
@@ -18,20 +18,13 @@ const MainCourseElement = ({ index, course }) => {
                 <strong>Крaткое описание:</strong> {course.short_description}
             </p>
             {
-                details && (
-                    <p>
-                       <strong>Полное описание:</strong> {details.full_description}
-                    </p>
-                )
-            }
-            {
                 mentor && (
                     <p>
                         <strong>Преподаватель:</strong> {mentor.fullname}
                     </p>
                 )
             }
-            <CourseButton onClick={showDetails}>Полное описание</CourseButton>
+            <CourseButton onClick={() => history.push(`courses/${course.id}`)}>Открыть</CourseButton>
             <CourseButton onClick={showMentor}>Кто преподаватель?</CourseButton>
         </div>
     )

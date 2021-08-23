@@ -1,5 +1,5 @@
 {
-    "HOST": "http://127.0.0.1:8080/",
+    "HOST": "http://127.0.0.1:8080/api/",
     "COURSES_RELATIVE_URL": "courses/",
     "MENTORS_RELATIVE_URL": "mentors/"
 }
