@@ -5,9 +5,12 @@ import MainMentorElement from '../components/UI/MainMentorElement'
 const Mentors = () => {
     const [mentors, setMentors] = useState(null)
 
-    useEffect(
-        async () => setMentors(await ApiService.fetchMentors()),
-    [])
+    useEffect(() => {
+        async function fetchData() {
+            setMentors(await ApiService.fetchMentors())
+        }
+        fetchData();
+    }, []);
 
     return (
         <div>

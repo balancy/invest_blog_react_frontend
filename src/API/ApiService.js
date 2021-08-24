@@ -2,19 +2,19 @@ import configData from "../config.json";
 
 export default class ApiService {
     static async fetchCourses() {
-        const coursesUrl = configData.HOST + configData.COURSES_RELATIVE_URL
+        const coursesUrl = configData.API + configData.COURSES_RELATIVE_URL
         const response = await fetch(coursesUrl);
         return await response.json();
     }
 
     static async fetchMentors() {
-        const mentorsUrl = configData.HOST + configData.MENTORS_RELATIVE_URL
+        const mentorsUrl = configData.API + configData.MENTORS_RELATIVE_URL
         const response = await fetch(mentorsUrl);
         return await response.json();
     }
 
     static async fetchCourse(id) {
-        const courseUrl = configData.HOST + configData.COURSES_RELATIVE_URL + id + '/'
+        const courseUrl = configData.API + configData.COURSES_RELATIVE_URL + id + '/'
         const response = await fetch(courseUrl);
         return await response.json();
     }
@@ -22,5 +22,11 @@ export default class ApiService {
     static async fetchMentor(url) {
         const response = await fetch(url);
         return await response.json();
+    }
+
+    static async fetchDataForUser(username) {
+        const userUrl = configData.API + configData.USERS_RELATIVE_URL + username + '/'
+        const response = await fetch(userUrl)
+        return await response.json()
     }
 }

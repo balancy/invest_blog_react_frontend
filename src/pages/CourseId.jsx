@@ -11,7 +11,7 @@ const CourseId = () => {
 
     useEffect(() => {
         fetchCourseDetails(params.id)
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div>

@@ -1,4 +1,5 @@
 import About from "../pages/About";
+import Account from "../pages/Account";
 import CourseId from "../pages/CourseId";
 import Courses from "../pages/Courses";
 import Login from "../pages/Login";
@@ -9,8 +10,13 @@ export const privateRoutes = [
     {path: '/courses', component: Courses},
     {path: '/courses/:id', component: CourseId},
     {path: '/mentors', component: Mentors},
+    {path: '/account', component: Account},
 ]
 
 export const publicRoutes = [
+    {path: '/about', component: About},
+    {path: '/courses', component: Courses},
+    {path: '/courses/:id', component: CourseId},
+    {path: '/mentors', component: Mentors},
     {path: '/login', component: Login},
 ]

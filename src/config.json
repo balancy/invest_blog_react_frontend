@@ -1,5 +1,8 @@
 {
-    "HOST": "http://127.0.0.1:8080/api/",
+    "API": "http://127.0.0.1:8080/api/",
+    "API-JWT": "http://127.0.0.1:8080/api-jwt/",
     "COURSES_RELATIVE_URL": "courses/",
-    "MENTORS_RELATIVE_URL": "mentors/"
+    "MENTORS_RELATIVE_URL": "mentors/",
+    "USERS_RELATIVE_URL": "users/",
+    "TIMEOUT": 5000
 }

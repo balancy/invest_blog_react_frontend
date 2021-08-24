@@ -4,32 +4,23 @@ import { AuthContext } from '../context';
 import { privateRoutes, publicRoutes } from './routes';
 
 const AppRouter = () => {
-    const { isAuth, setIsAuth } = useContext(AuthContext)
+    const { isAuth } = useContext(AuthContext)
+    let routes = isAuth ? privateRoutes : publicRoutes
 
     return (
-        isAuth
-            ?
-            <Switch>
-                {privateRoutes.map(route =>
+        <Switch>
+            {
+                routes.map(route =>
                     <Route
+                        key={route.path}
                         component={route.component}
                         exact
                         path={route.path}
                     />
-                )}
-                <Redirect to="/courses" />
-            </Switch>
-            :
-            <Switch>
-                {publicRoutes.map(route =>
-                    <Route
-                        component={route.component}
-                        exact
-                        path={route.path}
-                    />
-                )}
-                <Redirect to="/login" />
-            </Switch>
+                )
+            }
+            <Redirect to="/courses" />
+        </Switch>
     )
 }
 
