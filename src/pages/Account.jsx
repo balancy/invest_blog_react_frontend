@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ApiService from '../API/ApiService'
-import MainCourseElement from '../components/UI/MainCourseElement'
+import MentorAccount from '../components/accounts/MentorAccount'
+import UserAccount from '../components/accounts/UserAccount'
 
 const Account = () => {
     const [user, setUser] = useState({})
@@ -8,37 +9,17 @@ const Account = () => {
 
     useEffect(() => {
         async function fetchData() {
-            setUser(await ApiService.fetchDataForUser(username))
+            setUser(await ApiService.fetchUser(username))
         }
         fetchData();
-    }, [])
-
-    // debug
-    if (user) console.log(user)
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div>
-            <h1>Личный кабинет</h1>
-            <hr />
-            <div><h3>Добро пожаловать, {
+            {
                 user.mentor
-                    ? user.mentor.fullname
-                    : user.student && user.student.fullname
-            }</h3></div>
-            {user.student &&
-                <div>
-                    <h3>Вы записаны на курсы:</h3>
-                    {user.student.courses && (
-                        <div>
-                            {user.student.courses.map((course, index) => (
-                                <div key={index}>
-                                    <MainCourseElement index={index + 1} course={course} />
-                                    <hr />
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                </div>
+                    ? <MentorAccount user={user}/>
+                    : user.student && <UserAccount user={user}/>
             }
         </div>
     )

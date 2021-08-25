@@ -7,15 +7,18 @@
   width: 800px;
 }
 
-.navbar {
-  margin: 12px 0;
+.navbar, .course__buttons {
   display: flex;
-  background-color: lightblue;
   width: 100%;
-  padding: 12px;
 }
 
-.navbar__element, .MainButton {
+.navbar {
+  padding: 12px;
+  margin: 12px 0;
+  background-color: lightblue;
+}
+
+.navbar__element, .MainButton, .subscribeButton, .unsubscribeButton {
   padding: 5px 15px;
   color: teal;
   font-size: 14px;
@@ -27,8 +30,12 @@
   font-weight: 400;
 }
 
-.navbar__space {
-  flex: 1;
+.subscribeButton {
+  color: green;
+}
+
+.unsubscribeButton {
+  color: red;
 }
 
 .MainInput {
@@ -36,4 +43,12 @@
   padding: 5px 15px;
   margin: 5px 0;
   border: 1px solid teal;
+}
+
+.div__space {
+  flex: 1;
+}
+
+.div_account_courses {
+  margin-left: 18px;
 }

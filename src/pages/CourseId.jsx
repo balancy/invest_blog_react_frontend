@@ -26,7 +26,7 @@ const CourseId = () => {
                     </div>
                 )
             }
-            <MainButton onClick={() => history.push('/courses')}>Назад к курсам</MainButton>
+            <MainButton onClick={() => history.goBack()}>Назад к курсам</MainButton>
         </div>
     )
 }

@@ -16,16 +16,11 @@ const Courses = () => {
         <div>
             <h1>Курсы</h1>
             <hr />
-            {courses && (
-                <div>
-                    {courses.map((course, index) => (
-                        <div key={index}>
-                            <MainCourseElement index={index + 1} course={course} />
-                            <hr />
-                        </div>
-                    ))}
+            {courses && courses.map((course, index) => (
+                <div key={index}>
+                    <MainCourseElement index={index + 1} course={course} />
                 </div>
-            )}
+            ))}
         </div>
     )
 }

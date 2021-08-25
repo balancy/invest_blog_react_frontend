@@ -19,7 +19,7 @@ const AppRouter = () => {
                     />
                 )
             }
-            <Redirect to="/courses" />
+            <Redirect to={isAuth ? "/account" : "/courses"} />
         </Switch>
     )
 }

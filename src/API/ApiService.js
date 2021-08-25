@@ -19,12 +19,13 @@ export default class ApiService {
         return await response.json();
     }
 
-    static async fetchMentor(url) {
-        const response = await fetch(url);
+    static async fetchMentor(id) {
+        const mentorUrl = configData.API + configData.MENTORS_RELATIVE_URL + id + '/'
+        const response = await fetch(mentorUrl);
         return await response.json();
     }
 
-    static async fetchDataForUser(username) {
+    static async fetchUser(username) {
         const userUrl = configData.API + configData.USERS_RELATIVE_URL + username + '/'
         const response = await fetch(userUrl)
         return await response.json()

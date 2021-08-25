@@ -24,7 +24,7 @@ const MainNavbar = () => {
                     isAuth &&
                     <Link className="navbar__element" to="/account">Личный кабинет</Link>
                 }
-                <div className="navbar__space"></div>
+                <div className="div__space"/>
                 {
                     isAuth
                       ?
