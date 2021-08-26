@@ -132,4 +132,47 @@ export default class ApiService {
                 swal("Обновите токен", "Срок действия токена истек", "error"))
             .catch(error => swal("Ошибка", "Что-то пошло не так", "error"))
     }
+
+    static async addCourse(mentor, title, short_description, full_description, setAddedCourse) {
+        const url = configData.API + configData.COURSES_RELATIVE_URL
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        }
+
+        const data = {
+            "title": title,
+            "mentor": mentor,
+            "students": [],
+            "short_description": short_description,
+            "full_description": full_description
+        }
+
+        await axios.post(url, data, { headers })
+        .then(response => {
+            setAddedCourse(response.data.id)
+        }).catch(error =>
+            error.response.status === 403 &&
+            swal("Обновите токен", "Срок действия токена истек", "error"))
+        .catch(error => swal("Ошибка", "Что-то пошло не так", "error"))
+    }
+
+    static async deleteCourse(course_id, setDeletedCourse) {
+        const url = configData.API + configData.COURSES_RELATIVE_URL + course_id + '/'
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        }
+
+        await axios.delete(url, { headers })
+        .then(response => {
+            setDeletedCourse(response.config.url)
+        }).catch(error =>
+            error.response.status === 403 &&
+            swal("Обновите токен", "Срок действия токена истек", "error"))
+        .catch(error => swal("Ошибка", "Что-то пошло не так", "error"))
+    }
+
 }

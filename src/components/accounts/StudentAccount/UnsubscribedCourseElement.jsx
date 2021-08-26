@@ -1,7 +1,7 @@
 import React from 'react'
 import StudentCourseElement from '../../UI/StudentCourseElement'
 
-const UnsubscribedCourses = ({ allCourses, user, setCoursesNumber }) => {
+const UnsubscribedCourseElement = ({ allCourses, user, setCoursesNumber }) => {
     return (
         <div className="div_account_courses">
             {
@@ -28,4 +28,4 @@ const UnsubscribedCourses = ({ allCourses, user, setCoursesNumber }) => {
     )
 }
 
-export default UnsubscribedCourses
+export default UnsubscribedCourseElement

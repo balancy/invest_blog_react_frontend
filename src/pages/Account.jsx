@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ApiService from '../API/ApiService'
-import MentorAccount from '../components/accounts/MentorAccount'
-import UserAccount from '../components/accounts/UserAccount/UserAccount'
+import MentorAccount from '../components/accounts/MentorAccount/MentorAccount'
+import StudentAccount from '../components/accounts/StudentAccount/StudentAccount'
 
 const Account = () => {
     const [user, setUser] = useState({})
@@ -19,7 +19,7 @@ const Account = () => {
             {
                 user.mentor
                     ? <MentorAccount user={user}/>
-                    : user.student && <UserAccount user={user}/>
+                    : user.student && <StudentAccount user={user}/>
             }
         </div>
     )

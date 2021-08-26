@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import ApiService from '../../../API/ApiService'
 import MainButton from '../../UI/buttons/MainButton'
-import SubscribedCourses from './SubscribedCourses'
-import UnsubscribedCourses from './UnsubscribedCourses'
+import SubscribedCourseElement from './SubscribedCourseElement'
+import UnsubscribedCourseElement from './UnsubscribedCourseElement'
 
-const UserAccount = ({ user }) => {
+const StudentAccount = ({ user }) => {
     const [courses, setCourses] = useState({})
     const [actualCoursesNumber, setActualCoursesNumber] = useState(null)
 
@@ -22,14 +22,14 @@ const UserAccount = ({ user }) => {
             {courses &&
                 <div>
                     <h3>Вы записаны на курсы:</h3>
-                    <SubscribedCourses
+                    <SubscribedCourseElement
                         allCourses={courses}
                         user={user}
                         setCoursesNumber={setActualCoursesNumber}
                     />
                     <hr />
                     <h3>Вы можете записаться на курсы:</h3>
-                    <UnsubscribedCourses
+                    <UnsubscribedCourseElement
                         allCourses={courses}
                         user={user}
                         setCoursesNumber={setActualCoursesNumber}
@@ -45,4 +45,4 @@ const UserAccount = ({ user }) => {
     )
 }
 
-export default UserAccount
+export default StudentAccount
