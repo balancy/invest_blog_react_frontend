@@ -52,3 +52,20 @@
 .div_account_courses {
   margin-left: 18px;
 }
+
+/* contact page */
+
+.contactPage {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.contactForm {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.contactForm__control {
+  margin: 12px 0;
+}

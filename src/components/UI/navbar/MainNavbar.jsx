@@ -20,6 +20,7 @@ const MainNavbar = () => {
                 <Link className="navbar__element" to='/courses'>Курсы</Link>
                 <Link className="navbar__element" to='/mentors'>Преподаватели</Link>
                 <Link className="navbar__element" to='/about'>О нас</Link>
+                <Link className="navbar__element" to='/contact'>Контакты</Link>
                 {
                     isAuth &&
                     <Link className="navbar__element" to="/account">Личный кабинет</Link>
