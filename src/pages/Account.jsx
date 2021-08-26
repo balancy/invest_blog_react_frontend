@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ApiService from '../API/ApiService'
 import MentorAccount from '../components/accounts/MentorAccount'
-import UserAccount from '../components/accounts/UserAccount'
+import UserAccount from '../components/accounts/UserAccount/UserAccount'
 
 const Account = () => {
     const [user, setUser] = useState({})

@@ -18,7 +18,7 @@
   background-color: lightblue;
 }
 
-.navbar__element, .MainButton, .subscribeButton, .unsubscribeButton {
+.navbar__element, .MainButton, .SubscribeButton, .UnsubscribeButton {
   padding: 5px 15px;
   color: teal;
   font-size: 14px;
@@ -30,11 +30,11 @@
   font-weight: 400;
 }
 
-.subscribeButton {
+.SubscribeButton {
   color: green;
 }
 
-.unsubscribeButton {
+.UnsubscribeButton {
   color: red;
 }
 

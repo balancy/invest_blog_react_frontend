@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
-import { axiosInstance } from '../API/AxiosApi'
+import ApiService from '../API/ApiService'
 import MainButton from '../components/UI/buttons/MainButton'
 import MainInput from '../components/UI/input/MainInput'
 import { AuthContext } from '../context'
+
 
 const Login = () => {
     const [username, setUsername] = useState('Введите логин')
@@ -15,17 +16,7 @@ const Login = () => {
 
     const login = event => {
         event.preventDefault()
-
-        axiosInstance.post(
-            '/token/', { username: username, password: password }
-        ).then(response => {
-            const access_token = response.data.access
-            axiosInstance.defaults.headers['Authorization'] = "JWT" + access_token
-            localStorage.setItem('username', username)
-            localStorage.setItem('access_token', access_token)
-            localStorage.setItem('refresh_token', response.data.refresh)
-            setIsAuth(true)
-        }).catch(error => alert('Неверный логин или пароль'))
+        ApiService.obtainToken(username, password, setIsAuth)
     }
 
     return (

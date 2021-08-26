@@ -4,5 +4,6 @@
     "COURSES_RELATIVE_URL": "courses/",
     "MENTORS_RELATIVE_URL": "mentors/",
     "USERS_RELATIVE_URL": "users/",
+    "STUDENTS_RELATIVE_URL": "students/",
     "TIMEOUT": 5000
 }
