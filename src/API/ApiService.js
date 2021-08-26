@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from "sweetalert";
 import configData from "../config.json";
 
 export default class ApiService {
@@ -64,7 +65,7 @@ export default class ApiService {
             localStorage.setItem('access_token', access_token)
             localStorage.setItem('refresh_token', response.data.refresh)
             setIsAuth(true)
-        }).catch(error => alert('Неверный логин или пароль'))
+        }).catch(error => swal('Ошибка', 'Неверный логин или пароль', 'error'))
     }
 
 
@@ -75,8 +76,8 @@ export default class ApiService {
         ).then(response => {
             const access_token = response.data.access
             localStorage.setItem('access_token', access_token)
-        }).catch(error => alert('Неверный токен'))
-        alert("Токен обновлен")
+        }).catch(error => swal('Ошибка', 'Неверный токен для обновления', 'error'))
+        swal("Успех", "Токен обновлен", "success");
     }
 
     // Handling students subscriptions
@@ -93,21 +94,17 @@ export default class ApiService {
             'Authorization': 'Bearer ' + localStorage.getItem('access_token')
         }
 
-        // console.log("course id ", course_id)
-        // console.log("courses_id are ", courses_id)
         const data = {
             "courses": [course_id].concat(courses_id)
         }
 
         await axios.put(url, data, { headers })
             .then(response => {
-                console.log("courses id are ", courses_id)
-                console.log("course_id ", course_id)
-                console.log("data ", data)
                 setCoursesNumber(response.data.courses.length)
             }).catch(error =>
-                error.response.status === 403 && alert("Обновите токен"))
-            .catch(error => alert("Что-то пошло не так"))
+                error.response.status === 403 &&
+                swal("Обновите токен", "Срок действия токена истек", "error"))
+            .catch(error => swal("Ошибка", "Что-то пошло не так", "error"))
     }
 
 
@@ -129,12 +126,10 @@ export default class ApiService {
 
         await axios.put(url, data, { headers })
             .then(response => {
-                console.log("courses id are ", courses_id)
-                console.log("course_id ", course_id)
-                console.log("data ", data)
                 setCoursesNumber(response.data.courses.length)
             }).catch(error =>
-                error.response.status === 403 && alert("Обновите токен"))
-            .catch(error => alert("Что-то пошло не так"))
+                error.response.status === 403 &&
+                swal("Обновите токен", "Срок действия токена истек", "error"))
+            .catch(error => swal("Ошибка", "Что-то пошло не так", "error"))
     }
 }
