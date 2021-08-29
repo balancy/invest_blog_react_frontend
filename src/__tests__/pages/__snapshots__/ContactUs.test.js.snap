@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <h1>
+    Свяжитесь с нами
+  </h1>
+  <div
+    className="contactPage"
+  >
+    <form
+      className="ui form contactForm"
+      onSubmit={[Function]}
+    >
+      <div
+        className="required field contactForm__control"
+      >
+        <div
+          className="ui input"
+        >
+          <input
+            aria-describedby={null}
+            name="user_email"
+            onChange={[Function]}
+            placeholder="Ваш email"
+            required={true}
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="required field contactForm__control"
+      >
+        <div
+          className="ui input"
+        >
+          <input
+            aria-describedby={null}
+            name="user_name"
+            onChange={[Function]}
+            placeholder="Ваше имя"
+            required={true}
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="required field contactForm__control"
+      >
+        <textarea
+          aria-describedby={null}
+          name="user_message"
+          onChange={[Function]}
+          onInput={[Function]}
+          placeholder="Сообщение"
+          required={true}
+          rows={3}
+        />
+      </div>
+      <button
+        className="MainButton"
+        type="submit"
+      >
+        Отправить
+      </button>
+    </form>
+  </div>
+</div>
+`;
